@@ -1,3 +1,5 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
-const jest = require("jest");
+const engineer = require("./lib/engineer");
+const intern = require("./lib/intern");
+const manager = require("./lib/manager");

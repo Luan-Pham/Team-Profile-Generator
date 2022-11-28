@@ -1,11 +1,12 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
-const engineer = require('./lib/engineer');
-const intern = require('./lib/intern');
-const manager = require('./lib/manager');
+const Engineer = require('./lib/engineer');
+const Intern = require('./lib/intern');
+const Manager = require('./lib/manager');
 const generateTemplate = require('./src/template');
 
 const team = [];
+const removedChoices = [];
 
 const choices = function (choice) {
   removedChoices.push(choice);
@@ -25,7 +26,7 @@ const choices = function (choice) {
     ])
     .then(function (select) {
       if (select.employee === 'Engineer') {
-        engineerQ();
+        buildEngineer();
       } else if (select.employee === 'Intern') {
         buildIntern();
       } else if (select.employee === 'Manager') {
@@ -98,10 +99,88 @@ const buildManager = () => {
         answers.name,
         answers.id,
         answers.email,
-        answers.officeNumber
+        answers.officeNumber,
+        answers.role
       );
+      if (answers.officeNumber) {
+        answers.role = 'Manager';
+      }
       team.push(manager);
-      console.log(team);
+
+      return choices('Manager');
+    });
+};
+
+const buildEngineer = function () {
+  inquirer
+    .prompt([
+      {
+        type: 'input',
+        name: 'name',
+        message: 'What is the name of the Engineer? (Required)',
+        validate: (input) => {
+          if (input) {
+            return true;
+          } else {
+            console.log('Please enter the name of the Engineer');
+            return false;
+          }
+        },
+      },
+      {
+        type: 'input',
+        name: 'id',
+        message: "What is the Engineer's ID? (Required)",
+        validate: (input) => {
+          if (input) {
+            return true;
+          } else {
+            console.log('Please enter the ID');
+            return false;
+          }
+        },
+      },
+      {
+        type: 'input',
+        name: 'email',
+        message: 'What is the email of the Engineer? (Required)',
+        validate: (input) => {
+          if (input) {
+            return true;
+          } else {
+            console.log('Please enter an email');
+            return false;
+          }
+        },
+      },
+      {
+        type: 'input',
+        name: 'github',
+        message: 'What is the gitHub of the engineer (Required)',
+        validate: (input) => {
+          if (input) {
+            return true;
+          } else {
+            console.log('Please provide the github');
+            return false;
+          }
+        },
+      },
+    ])
+    .then((answers) => {
+      console.log(answers);
+      const engineer = new Engineer(
+        answers.name,
+        answers.id,
+        answers.email,
+        answers.school,
+        answers.role
+      );
+      if (answers.github) {
+        answers.role = 'Intern';
+      }
+      team.push(engineer);
+      return choices('Engineer');
     });
 };
 
@@ -173,7 +252,26 @@ const buildIntern = function () {
       if (answers.school) {
         answers.role = 'Intern';
       }
-      newEmployee.push(intern);
+      team.push(intern);
       return choices('Intern');
     });
 };
+
+choices();
+
+function positionfilled() {
+  console.log(team);
+  fs.writeFileSync(
+    './dist/index.html',
+    generateTemplate(team),
+
+    'utf-8',
+    function (err) {
+      if (err) {
+        throw err;
+      } else {
+        console.log('Success! A file has now been created.');
+      }
+    }
+  );
+}

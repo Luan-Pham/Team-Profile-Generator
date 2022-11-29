@@ -8,7 +8,7 @@ const engineer = new Engineer(
 
 test('Information for constructor object', () => {
   expect(engineer.name).toBe('Luan');
-  expect(engineer.id).toBe(345);
+  expect(engineer.id).toBe(123);
   expect(engineer.email).toBe('testengineer@gmail.com');
   expect(engineer.github).toBe('github.com/Luan-Pham');
 });
@@ -18,7 +18,7 @@ test('Information from getName method', () => {
 });
 
 test('Information from getId method', () => {
-  expect(engineer.getId()).toEqual(345);
+  expect(engineer.getId()).toEqual(123);
 });
 
 test('Information from getemail method', () => {

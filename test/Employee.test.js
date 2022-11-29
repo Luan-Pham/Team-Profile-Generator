@@ -11,7 +11,7 @@ test('Information from getName method making sure its a string', () => {
 });
 
 test('Information from getId method', () => {
-  expect(employee.getId()).toBe(1);
+  expect(employee.getID()).toBe(1);
 });
 
 test('Information from getEmail method', () => {

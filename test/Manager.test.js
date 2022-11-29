@@ -3,7 +3,7 @@ const manager = new Manager(
   'Managertest',
   1,
   'Managertest@gmail.com',
-  1,
+  2,
   'Manager'
 );
 
@@ -11,7 +11,7 @@ test('Information for constructor object', () => {
   expect(manager.name).toBe('Managertest');
   expect(manager.id).toBe(1);
   expect(manager.email).toBe('Managertest@gmail.com');
-  expect(manager.office).toBe(1);
+  expect(manager.officeNumber).toBe(2);
 });
 
 test('Information from getName method', () => {
@@ -24,6 +24,10 @@ test('Information from getId method', () => {
 
 test('Information from getemail method', () => {
   expect(manager.getEmail()).toBe('Managertest@gmail.com');
+});
+
+test('Information from getofficeNumber method', () => {
+  expect(manager.getOfficeNumber()).toBe(2);
 });
 
 test('Information from getrole method', () => {

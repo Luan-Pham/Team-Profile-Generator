@@ -1,3 +1,4 @@
+const { info } = require('console');
 const fs = require('fs');
 const inquirer = require('inquirer');
 const Engineer = require('./lib/engineer');
@@ -93,19 +94,19 @@ const buildManager = () => {
         },
       },
     ])
-    .then((answers) => {
-      console.log(answers);
+    .then((mana) => {
+      console.log(mana);
       const manager = new Manager(
-        answers.name,
-        answers.id,
-        answers.email,
-        answers.officeNumber,
-        answers.role
+        mana.name,
+        mana.id,
+        mana.email,
+        mana.officeNumber,
+        mana.role
       );
-      if (answers.officeNumber) {
-        answers.role = 'Manager';
+      if (mana.officeNumber) {
+        mana.role = 'Manager';
       }
-      team.push(manager);
+      team.push(mana);
 
       return choices('Manager');
     });
@@ -167,19 +168,19 @@ const buildEngineer = function () {
         },
       },
     ])
-    .then((answers) => {
-      console.log(answers);
+    .then((engi) => {
+      console.log(engi);
       const engineer = new Engineer(
-        answers.name,
-        answers.id,
-        answers.email,
-        answers.school,
-        answers.role
+        engi.name,
+        engi.id,
+        engi.email,
+        engi.school,
+        engi.role
       );
-      if (answers.github) {
-        answers.role = 'Intern';
+      if (engi.github) {
+        engi.role = 'Intern';
       }
-      team.push(engineer);
+      team.push(engi);
       return choices('Engineer');
     });
 };
@@ -240,19 +241,19 @@ const buildIntern = function () {
         },
       },
     ])
-    .then((answers) => {
-      console.log(answers);
+    .then((inte) => {
+      console.log(inte);
       const intern = new Intern(
-        answers.name,
-        answers.id,
-        answers.email,
-        answers.school,
-        answers.role
+        inte.name,
+        inte.id,
+        inte.email,
+        inte.school,
+        inte.role
       );
-      if (answers.school) {
-        answers.role = 'Intern';
+      if (inte.school) {
+        inte.role = 'Intern';
       }
-      team.push(intern);
+      team.push(inte);
       return choices('Intern');
     });
 };
@@ -261,6 +262,7 @@ choices();
 
 function positionfilled() {
   console.log(team);
+  console.log(team[0].name);
   fs.writeFileSync(
     './dist/index.html',
     generateTemplate(team),

@@ -1,4 +1,3 @@
-const { info } = require('console');
 const fs = require('fs');
 const inquirer = require('inquirer');
 const Engineer = require('./lib/engineer');
@@ -11,7 +10,7 @@ const removedChoices = [];
 
 const choices = function (choice) {
   removedChoices.push(choice);
-  const allChoices = ['Manager', 'Engineer', 'Intern', "Position's Filled"];
+  const allChoices = ['Manager', 'Engineer', 'Intern', 'Positions are filled'];
   const updatedChoices = allChoices.filter((item) => {
     return !removedChoices.includes(item);
   });

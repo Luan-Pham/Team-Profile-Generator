@@ -36,7 +36,7 @@ function generateTemplate(team) {
                 <div class="card-body">
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item">ID: ${team[0].id}</li>
-                    <li class="list-group-item">Email: <a href=mailto: ${team[0].email}</a></li>
+                    <li class="list-group-item">Email: <a href=mailto: ${team[0].email}>${team[0].email}</a></li>
                     <li class="list-group-item">Office number: ${team[0].officeNumber}</li>
                   </ul>
                 </div>
@@ -57,7 +57,7 @@ function generateTemplate(team) {
                 <div class="card-body">
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item">ID: ${team[1].id}</li>
-                    <li class="list-group-item">Email: ${team[1].email}>${team[1].email}</a></li>
+                    <li class="list-group-item">Email: <a href=mailto: ${team[1].email}>${team[1].email}</a></li>
                     <li class="list-group-item">GitHub: <a href=https://github.com/${team[1].github}>${team[1].github}</a></li>
                   </ul>
                 </div>

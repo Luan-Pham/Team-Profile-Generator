@@ -20,15 +20,14 @@ This is an application to create a profile for a team. The user will be prompted
   ## Usage
 
   Anybody can use this project
+
   Visit https://youtu.be/sk2qRyxZ3oY for demonstration
 
-  ## Credit
+  <img src="Sample-Team.png">
 
   ## License
 
   [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
-
-  ## Badges
 
   ## Test
 

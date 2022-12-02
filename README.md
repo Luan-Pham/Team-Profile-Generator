@@ -35,5 +35,5 @@ This is an application to create a profile for a team. The user will be prompted
 
   ## Questions
 
-  -https://github.com/github.com/Luan-Pham
+  -https://github.com/Luan-Pham
   -phamexb@gmail.com

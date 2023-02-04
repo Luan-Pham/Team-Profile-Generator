@@ -4,7 +4,7 @@ Team Profile Generator
 
 ## Description
 
-This is an application to create a profile for a team. The user will be prompted to enter in information about employees and additional information depending on their role in the team (Manager, Engineer, Intern). After answwering all of the prompts, an html file will be generated with the information of the team as provided by the user.
+This is an application to create a profile for a team. The user will be prompted to enter in information about employees and additional information depending on their role in the team (Manager, Engineer, Intern). After answering all of the prompts, an html file will be generated with the information of the team as provided by the user.
 
 ## Table of Contents
 
